@@ -1,8 +1,6 @@
 /*____________________________________________________________________________//
 Project Name: Lexical Analyzer (Assignment 1)
-Name: Baker, Blake & Herman, Chad
-Class: CPSC 323 Section: 02
-Professor: Song-James Choi Ph.D
+
 Due: October 1, 2010
 
 ______________________________________________________________________________*/

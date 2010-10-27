@@ -1,8 +1,5 @@
 /*____________________________________________________________________________//
 Project Name: Syntax Analyzer (Assignment 2)
-Name: Baker, Blake & Herman, Chad
-Class: CPSC 323 Section: 02
-Professor: Song-James Choi Ph.D
 Due: November 5, 2010
 
 ______________________________________________________________________________*/
@@ -17,7 +14,21 @@ void syntax::output_printer_flag()
 	cin>>rule;
 	
 	if (rule == 'n' || rule == 'N')
-		globalPrintSwitch = true;
+		PrintSwitch = true;
 	else
-		globalPrintSwitch = false;
+		PrintSwitch = false;
 }
+
+
+
+
+
+
+
+bool syntax::Empty()
+	{
+		if(PrintSwitch == true)
+			cout<<"<Empty> ::= Epsilon\n";
+		
+		return true;
+	}
