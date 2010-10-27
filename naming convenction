@@ -1,0 +1,35 @@
+//Skipping the first one for Rat10F
+
+A		=		Opt Function Definitions
+B		=		Function Definitions
+C		=		Function
+D		=		Opt Parameter List
+E		=		Parameter List
+F		=		Parameter
+G		=		Qualifier
+
+// Not sure if we need one for <Body> ::= {<Statement List>}, so I am
+// skipping it.
+
+H		=		Opt Declaration List	
+I		=		Declaration List
+J		=		Declaration
+K		=		IDs
+L		=		Statement List
+M		=		Statement
+N		=		Compound
+O		=		Assign
+P		=		If
+Q		=		Return
+R		=		Write
+S		=		Read
+T		=		While
+U		=		Relop
+V		=		Expression
+W		=		Term
+X		=		Factor
+Y		=		Primary
+Z		=		Empty  //Also not sure if we need empty
+
+
+New Syntax Rules:
