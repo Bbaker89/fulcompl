@@ -1,7 +1,7 @@
 $$
 function convert [fah_r:int]
 {
-	return 5*(fahr-32)/9;
+	return 5*9;
 }
 
 $$

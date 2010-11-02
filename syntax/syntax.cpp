@@ -683,7 +683,7 @@ bool syntax::Condition()
 
 bool syntax::Relop()
 {
-	if( t == true){/*Test*/ writeFile << "Entered Relop" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered Relop" << endl; printInfo();}
 	bool valid = true;
 
 	if(lexeme == "="){
@@ -732,7 +732,7 @@ bool syntax::Relop()
 
 bool syntax::Expression()
 {
-	if( t == true){/*Test*/ writeFile << "Entered Expression" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered Expression" << endl; printInfo();}
 	bool valid = false;
 
 	if(Term())
@@ -751,7 +751,7 @@ bool syntax::Expression()
 
 bool syntax::ExpressionPrime()
 {
-	if( t == true){/*Test*/ writeFile << "Entered E Prime" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered E Prime" << endl; printInfo();}
 	bool valid = false;
 
 	if(lexeme == "+"|| lexeme == "-")
@@ -779,7 +779,7 @@ bool syntax::ExpressionPrime()
 
 bool syntax::Term()
 {
-	if( t == true){/*Test*/ writeFile << "Entered Term" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered Term" << endl; printInfo();}
 	bool valid = false;
 
 	if(Factor())
@@ -796,7 +796,7 @@ bool syntax::Term()
 
 bool syntax::TermPrime()
 {
-	if( t == true){/*Test*/ writeFile << "Entered Term Prime" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered Term Prime" << endl; printInfo();}
 	bool valid = false;
 
 	if(lexeme == "*"|| lexeme == "/")
@@ -823,7 +823,7 @@ bool syntax::TermPrime()
 
 bool syntax::Factor()
 {
-	if( t == true){/*Test*/ writeFile << "Entered Factor" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered Factor" << endl; printInfo();}
 		bool valid = false;
 
 		if(lexeme == "-")
@@ -850,30 +850,20 @@ bool syntax::Factor()
 
 bool syntax::Primary()
 {
-	if( t == true){/*Test*/ writeFile << "Entered Primary" << endl;}
+	if( t == true){/*Test*/ writeFile << "Entered Primary" << endl; printInfo();}
 		bool valid = false;
-
-		if(Identifier());{
-			valid = true;
-
-			if(PrintSwitch)
-				printInfo(); writeFile<<"<Primary> :== Identifier\n";
-		}
-
-		if(lexeme == "real"){
+		if(token == "Real"){
 			valid = true;
 
 			if(PrintSwitch)
 				printInfo(); writeFile<<"<Primary> :== Real\n";
 		}
-
-		if(lexeme == "identifier"){
+		else if(token == "Identifier"){
 			valid = true;
 			if(PrintSwitch)
 				printInfo(); writeFile<<"<Primary> ::= Identifier\n";
 		}
-
-		if(lexeme == "("){
+		else if(lexeme == "("){
 			if(Expression());{
 				lex();
 
@@ -886,24 +876,23 @@ bool syntax::Primary()
 					syntax_error("Expecting )");
 			}
 		}
-
-		if(lexeme == "integer"){
+		else if(token == "Integer"){
 			valid = true;
 			if(PrintSwitch)
 				printInfo(); writeFile<<"<Primary> ::= Integer\n";
 		}
-
-		if(lexeme == "true"){
+		else if(lexeme == "true"){
 			valid = true;
 			if(PrintSwitch)
 				printInfo(); writeFile<<"<Primary> ::= TRUE\n";
 		}
-
-		if(lexeme == "false"){
+		else if(lexeme == "false"){
 			valid = true;
 			if(PrintSwitch)
 				printInfo(); writeFile<<"<Primary> ::= FALSE\n";
 		}
+		else 
+			syntax_error("Expecting Primary");
 
 		return valid;
 	}
